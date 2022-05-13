@@ -1,0 +1,227 @@
+<style>
+    /* Popup (arka plan) */
+.modal {
+display: none; /* Varsayılan olarak gizlidir */
+position: fixed; /* Yerinde kal */
+z-index: 1; /* Üstte */
+left: 0;
+top: 0;
+width: 100%; /* Ful Genişlik */
+height: 100%; /* Ful Yükseklik */
+overflow: auto; /* Gerekirse kaydırmayı etkinleştir */
+background-color: rgb(0,0,0); /* Yedek renk */
+background-color: rgba(0,0,0,0.4); /* Siyah w / opaklık */
+}
+
+/* İçerik / Kutu */
+.modal-content {
+background-color: #fefefe;
+margin: 15% auto; /* % 15 üstten ve ortalanmış */
+padding: 20px;
+border: 1px solid #888;
+width: 50%; /* Ekran boyutuna bağlı olarak daha fazla veya daha az olabilir */
+}
+
+/* Kapat Düğmesi */
+.close {
+z-index: 99;
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+.icerik {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    align-items: center;
+}
+</style>
+
+
+<div id="myModal" class="modal">
+<div class="modal-content">
+<span class="close">x</span>
+<style>
+    :root {
+--surface-color: #fff;
+--curve: 40;
+}
+
+* {
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Noto Sans JP', sans-serif;
+background-color: #fef8f8;
+}
+
+.cards {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 15px;
+padding: 0;
+list-style-type: none;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+position: relative;
+height: 100%;  
+border-radius: calc(var(--curve) * 1px);
+overflow: hidden;
+text-decoration: none;
+margin: 15px;
+}
+
+.card-image {      
+width:"100%";
+height: auto;
+}
+
+.card-overlay {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: 1;      
+border-radius: calc(var(--curve) * 1px);    
+background-color: var(--surface-color);      
+transform: translateY(100%);
+transition: .2s ease-in-out;
+}
+
+.card:hover .card-overlay {
+transform: translateY(0);
+}
+
+.card-header {
+opacity: 0%;
+position: relative;
+display: flex;
+align-items: center;
+gap: 2em;
+padding: 2em;
+border-radius: calc(var(--curve) * 1px) 0 0 0;    
+background-color: var(--surface-color);
+transform: translateY(-100%);
+transition: .2s ease-in-out;
+}
+
+.card:hover .card-header {
+opacity: 100%;
+transform: translateY(0);
+}
+
+.card-title {
+font-size: 1em;
+margin: 0 0 .3em;
+color: #6A515E;
+}
+
+.card-tagline {
+display: block;
+margin: 1em 0;
+font-family: "MockFlowFont";  
+font-size: .8em; 
+color: #D7BDCA;  
+}
+
+.card-status {
+font-size: 20px;
+color: #080808;
+}
+
+</style>
+<div><h4 style="-webkit-text-fill-color: transparent; -webkit-text-stroke: 1.25px rgb(17, 16, 16); font-size: 40px; text-align: center;">Bu Fırsatları Kaçırmayın!</h4>
+</div>
+<div class="icerik">
+    <ul class="cards">
+        <li>
+        <a href="/" class="card">
+          <img src="/Uploads/EditorUploads/card3.jpg" alt="" class="card-image">
+          <div class="card-overlay">
+            <div class="card-header">
+               <div class="card-header-text">
+              <h3 class="card-title"> Emrah AYDIN </h3>
+              <span class="card-status">Favori Ürünler</span>
+            </div>
+          </div>
+          Lorem ipsum dolor sit amet.
+        </div>
+        </a>
+        </li>
+        <li>
+        <a href="/" class="card">
+          <img src="/Uploads/EditorUploads/card4.jpg" alt="" class="card-image">
+          <div class="card-overlay">
+            <div class="card-header">
+               <div class="card-header-text">
+              <h3 class="card-title"> Emrah AYDIN </h3>
+              <span class="card-status">Favori Ürünler</span>
+            </div>
+          </div>
+        </div>
+        </a>
+        </li>
+        <li>
+        <a href="/" class="card">
+          <img src="/Uploads/EditorUploads/card5.jpg" alt="" class="card-image">
+          <div class="card-overlay">
+            <div class="card-header">
+               <div class="card-header-text">
+              <h3 class="card-title"> Emrah AYDIN </h3>
+              <span class="card-status">Favori Ürünler</span>
+            </div>
+          </div>
+        </div>
+        </a>
+        </li>
+        </ul>
+</div>
+</div>
+</div>
+
+<script>
+
+// Popup Al
+var modal = document.getElementById('myModal');
+
+// Kipi açan düğmeyi al
+var btn = document.getElementById("myBtn");
+
+
+// Kullanıcı düğmeyi tıklattığında
+setTimeout(function(){
+modal.style.display = "block";
+},5000);
+
+// Kullanıcı <span> (x) düğmesini tıkladığında, popup
+document.querySelector(".close").onclick = function() {
+console.log("Kapatıldı");
+modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+if (event.target == modal) {
+    modal.style.display = "none";
+}
+}
+</script>
+
+
+
